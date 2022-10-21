@@ -7,13 +7,16 @@ public class PlayerC2 : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     Animator animatorHud;
+    Enemigo1 enemy;
 
     public float velocidad;
     public float salto;
 
     public int vida;
-    public int vidaEnemigo;
-    public int daño;
+
+    public int danoGolpe;
+    public Transform controladorGolpe;
+    public float radio;
 
     private bool moving;
     private bool moving2;
@@ -22,10 +25,11 @@ public class PlayerC2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        enemy = GameObject.FindGameObjectWithTag("Enemigo").GetComponent<Enemigo1>();
         animator = GetComponent<Animator>();
+        animatorHud = GameObject.FindGameObjectWithTag("PaisaHud").GetComponent<Animator>();
 
-        vida = 3;
-        daño = 1;
+
     }
 
     void Update()
@@ -63,51 +67,72 @@ public class PlayerC2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            animator.SetTrigger("Attack");
+            Golpe();
+        }
+    }
+
+    private void Golpe()
+    {
+        animator.SetTrigger("Attack");
+
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radio);
+
+        foreach (Collider2D collisionador in objetos)
+        {
+            if (collisionador.CompareTag("Enemigo"))
+            {
+                collisionador.transform.GetComponent<Enemigo1>().Dano(danoGolpe);
+            }
         }
     }
 
     private void ControlHud()
     {
-        if (vida == 3 && vidaEnemigo == 2)
+        if (vida == 3 && enemy.vidaEnemigo == 2)
         {
-
+            animatorHud.SetTrigger("3V2H");
         }
 
-        if (vida == 3 && vidaEnemigo == 1)
+        if (vida == 3 && enemy.vidaEnemigo == 1)
         {
-
+            animatorHud.SetTrigger("3V3H");
         }
 
-        if (vida == 2 && vidaEnemigo == 3)
+        if (vida == 2 && enemy.vidaEnemigo == 3)
         {
-
+            animatorHud.SetTrigger("2V1H");
         }
 
-        if (vida == 2 && vidaEnemigo == 2)
+        if (vida == 2 && enemy.vidaEnemigo == 2)
         {
-
+            animatorHud.SetTrigger("2V2H");
         }
 
-        if (vida == 2 && vidaEnemigo == 1)
+        if (vida == 2 && enemy.vidaEnemigo == 1)
         {
-
+            animatorHud.SetTrigger("2V1H");
         }
 
-        if (vida == 1 && vidaEnemigo == 3)
+        if (vida == 1 && enemy.vidaEnemigo == 3)
         {
-
+            animatorHud.SetTrigger("1V1H");
         }
 
-        if (vida == 1 && vidaEnemigo == 2)
+        if (vida == 1 && enemy.vidaEnemigo == 2)
         {
-
+            animatorHud.SetTrigger("1V2H");
         }
 
-        if (vida == 1 && vidaEnemigo == 1)
+        if (vida == 1 && enemy.vidaEnemigo == 1)
         {
-
+            animatorHud.SetTrigger("1V3H");
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(controladorGolpe.position, radio);
     }
 
     private void FixedUpdate()

@@ -989,7 +989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rolo: {fileID: 542780630}
   paisa: {fileID: 2000157779}
-  "cale\xF1o": {fileID: 557125325}
+  caleno: {fileID: 557125325}
   enemigo: {fileID: 557125325}
   prefabs:
   - {fileID: 8632310606737237946, guid: e83dc320b173f8c449d3f61cbb32eb29, type: 3}

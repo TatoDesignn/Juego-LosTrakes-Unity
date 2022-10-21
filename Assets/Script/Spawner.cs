@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,32 +12,30 @@ public class Spawner : MonoBehaviour
     private GameObject verde;
 
     public Image hudA;
+    public Image hudR;
 
     void Start()
     {
-        Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
+        hudA.gameObject.SetActive(false);
+        hudR.gameObject.SetActive(false);
 
-        /*rojo = GameObject.FindGameObjectWithTag("Paisa");
-        azul = GameObject.FindGameObjectWithTag("Rolo");
-        verde = GameObject.FindGameObjectWithTag("Caleño");*/
+        Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
 
     }
 
     private void Update()
     {
-        if(GameObject.FindGameObjectWithTag("Rolo").activeInHierarchy == true)
+
+        if (Comunicador.playerPrefab.CompareTag("Rolo"))
         {
             hudA.gameObject.SetActive(true);
+            Destroy(gameObject);
         }
 
-       /* if (rojo.activeInHierarchy == true)
+        if (Comunicador.playerPrefab.CompareTag("Paisa"))
         {
-            
+            hudR.gameObject.SetActive(true);
+            Destroy(gameObject);
         }
-
-        if (verde.activeInHierarchy == true)
-        {
-            
-        }*/
     }
 }

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Suelo
   - Rolo
+  - RoloHud
+  - Enemigo
+  - Paisa
+  - PaisaHud
   layers:
   - Default
   - TransparentFX

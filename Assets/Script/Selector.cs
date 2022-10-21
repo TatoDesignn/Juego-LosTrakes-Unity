@@ -7,7 +7,7 @@ public class Selector : MonoBehaviour
 {
     public GameObject rolo;
     public GameObject paisa;
-    public GameObject caleño;
+    public GameObject caleno;
     public GameObject enemigo;
 
     public GameObject[] prefabs;
@@ -16,7 +16,7 @@ public class Selector : MonoBehaviour
     {
         rolo.SetActive(false);
         paisa.SetActive(false);
-        caleño.SetActive(false);
+        caleno.SetActive(false);
         enemigo.SetActive(false);
 
         this.Select(0);
@@ -34,9 +34,9 @@ public class Selector : MonoBehaviour
         Invoke("Enemigo", 1);
     }
 
-    public void Caleño()
+    public void Caleno()
     {
-        caleño.SetActive(true);
+        caleno.SetActive(true);
         Invoke("Enemigo", 1);
     }
 
