@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
         hudA.gameObject.SetActive(false);
         hudR.gameObject.SetActive(false);
 
-        Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
+        
 
     }
 
@@ -29,12 +29,14 @@ public class Spawner : MonoBehaviour
         if (Comunicador.playerPrefab.CompareTag("Rolo"))
         {
             hudA.gameObject.SetActive(true);
+            Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
             Destroy(gameObject);
         }
 
         if (Comunicador.playerPrefab.CompareTag("Paisa"))
         {
             hudR.gameObject.SetActive(true);
+            Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
             Destroy(gameObject);
         }
     }
