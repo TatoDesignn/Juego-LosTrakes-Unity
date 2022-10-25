@@ -34,7 +34,7 @@ public class PlayerC2 : MonoBehaviour
 
     void Update()
     {
-        ControlHud();
+        //ControlHud();
         Movimiento();
         Ataque();
     }
@@ -86,7 +86,7 @@ public class PlayerC2 : MonoBehaviour
         }
     }
 
-    private void ControlHud()
+    /*private void ControlHud()
     {
         if (vida == 3 && enemy.vidaEnemigo == 2)
         {
@@ -127,7 +127,7 @@ public class PlayerC2 : MonoBehaviour
         {
             animatorHud.SetTrigger("1V3H");
         }
-    }
+    }*/
 
     private void OnDrawGizmos()
     {

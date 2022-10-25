@@ -10,6 +10,9 @@ TagManager:
   - Enemigo
   - Paisa
   - PaisaHud
+  - Caleno
+  - CalenoHud
+  - EnemigoHud
   layers:
   - Default
   - TransparentFX

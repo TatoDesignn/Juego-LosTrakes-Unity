@@ -7,19 +7,15 @@ using UnityEngine.UI;
 public class Spawner : MonoBehaviour
 {
 
-    private GameObject rojo;
-    private GameObject azul;
-    private GameObject verde;
-
     public Image hudA;
     public Image hudR;
+    public Image hudV;
 
     void Start()
     {
         hudA.gameObject.SetActive(false);
         hudR.gameObject.SetActive(false);
-
-        
+        hudV.gameObject.SetActive(false); 
 
     }
 
@@ -36,6 +32,13 @@ public class Spawner : MonoBehaviour
         if (Comunicador.playerPrefab.CompareTag("Paisa"))
         {
             hudR.gameObject.SetActive(true);
+            Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
+            Destroy(gameObject);
+        }
+
+        if (Comunicador.playerPrefab.CompareTag("Caleno"))
+        {
+            hudV.gameObject.SetActive(true);
             Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
             Destroy(gameObject);
         }

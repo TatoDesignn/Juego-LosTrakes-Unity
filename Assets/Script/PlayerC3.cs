@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-
-public class PlayerC : MonoBehaviour
+public class PlayerC3 : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
@@ -29,14 +27,14 @@ public class PlayerC : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemigo").GetComponent<Enemigo1>();
         animator = GetComponent<Animator>();
-        animatorHud = GameObject.FindGameObjectWithTag("RoloHud").GetComponent<Animator>();
+        animatorHud = GameObject.FindGameObjectWithTag("CalenoHud").GetComponent<Animator>();
 
 
     }
 
     void Update()
     {
-        
+        //ControlHud();
         Movimiento();
         Ataque();
     }
@@ -88,60 +86,46 @@ public class PlayerC : MonoBehaviour
         }
     }
 
-    /*public void Dano(int danoG)
+    /*private void ControlHud()
     {
-        vidaEnemigo += danoG;
-
-        if (vidaEnemigo == 4)
+        if (vida == 3 && enemy.vidaEnemigo == 2)
         {
-            vida -= 1;
-            vidaEnemigo = 1;
-
-            if (vida == 0)
-            {
-                Destroy(gameObject);
-                Destroy(GameObject.FindGameObjectWithTag("EnemigoHud"));
-            }
+            animatorHud.SetTrigger("3V2H");
         }
 
-        if (vida == 3 && vidaEnemigo == 2)
+        if (vida == 3 && enemy.vidaEnemigo == 1)
         {
-            animator.SetTrigger("3V2H");
+            animatorHud.SetTrigger("3V3H");
         }
 
-        if (vida == 3 && vidaEnemigo == 3)
+        if (vida == 2 && enemy.vidaEnemigo == 3)
         {
-            animator.SetTrigger("3V3H");
+            animatorHud.SetTrigger("2V1H");
         }
 
-        if (vida == 2 && vidaEnemigo == 1)
+        if (vida == 2 && enemy.vidaEnemigo == 2)
         {
-            animator.SetTrigger("2V1H");
+            animatorHud.SetTrigger("2V2H");
         }
 
-        if (vida == 2 && vidaEnemigo == 2)
+        if (vida == 2 && enemy.vidaEnemigo == 1)
         {
-            animator.SetTrigger("2V2H");
+            animatorHud.SetTrigger("2V1H");
         }
 
-        if (vida == 2 && vidaEnemigo == 3)
+        if (vida == 1 && enemy.vidaEnemigo == 3)
         {
-            animator.SetTrigger("2V3H");
+            animatorHud.SetTrigger("1V1H");
         }
 
-        if (vida == 1 && vidaEnemigo == 1)
+        if (vida == 1 && enemy.vidaEnemigo == 2)
         {
-            animator.SetTrigger("1V1H");
+            animatorHud.SetTrigger("1V2H");
         }
 
-        if (vida == 1 && vidaEnemigo == 2)
+        if (vida == 1 && enemy.vidaEnemigo == 1)
         {
-            animator.SetTrigger("1V2H");
-        }
-
-        if (vida == 1 && vidaEnemigo == 3)
-        {
-            animator.SetTrigger("1V3H");
+            animatorHud.SetTrigger("1V3H");
         }
     }*/
 
@@ -162,11 +146,10 @@ public class PlayerC : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Suelo")
+        if (collision.collider.tag == "Suelo")
         {
             puedeSaltar = true;
             animator.SetBool("Down", false);
         }
     }
-
 }
