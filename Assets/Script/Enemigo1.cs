@@ -6,15 +6,41 @@ public class Enemigo1 : MonoBehaviour
 {
     Animator animator;
 
+    public Rigidbody2D rb2;
+
+    public Transform jugador;
+
+    public bool mirando = true;
+
     public int vidaEnemigo;
     public int vida;
 
+    public float distanciaJugador;
     private void Start()
     {
         animator = GameObject.FindGameObjectWithTag("EnemigoHud").GetComponent<Animator>();
+        jugador = Comunicador.playerPrefab.GetComponent<Transform>();
+
+        rb2 = GetComponent<Rigidbody2D>();
 
         vidaEnemigo = 1;
         vida = 3;
+    }
+
+    private void Update()
+    {
+        if (mirando)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        else if(!mirando)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+        animator.SetFloat("DistanciaJugador", distanciaJugador);
     }
 
     public void Dano(int danoG)
@@ -73,4 +99,14 @@ public class Enemigo1 : MonoBehaviour
             animator.SetTrigger("1V3H");
         }
     }
+
+    public void MirarJugador()
+    {
+        if((jugador.position.x > transform.position.x && !mirando) || (jugador.position.x < transform.position.x && mirando))
+        {
+            mirando = !mirando;
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
+        }
+    }
 }
+

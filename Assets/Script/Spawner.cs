@@ -42,5 +42,7 @@ public class Spawner : MonoBehaviour
             Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
             Destroy(gameObject);
         }
+
+        
     }
 }

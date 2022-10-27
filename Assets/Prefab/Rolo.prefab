@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 8
-  salto: 8
+  salto: 15
   vida: 3
   danoGolpe: 1
   controladorGolpe: {fileID: 6884634270273051175}
