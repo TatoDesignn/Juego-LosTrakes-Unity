@@ -13,6 +13,8 @@ TagManager:
   - Caleno
   - CalenoHud
   - EnemigoHud
+  - Jugador
+  - Perde
   layers:
   - Default
   - TransparentFX

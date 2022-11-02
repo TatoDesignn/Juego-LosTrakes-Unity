@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2752191348461552818}
   m_Layer: 0
   m_Name: ControladorGolpe
-  m_TagString: Untagged
+  m_TagString: Jugador
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,8 +133,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 8
-  salto: 8
+  salto: 12
   vida: 3
+  vida2: 0
+  tiempoEntre: 0.5
   danoGolpe: 1
   controladorGolpe: {fileID: 2752191348461552818}
   radio: 1

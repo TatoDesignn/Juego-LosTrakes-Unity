@@ -8,11 +8,17 @@ public class PlayerC3 : MonoBehaviour
     Animator animator;
     Animator animatorHud;
     Enemigo1 enemy;
+    Perder perdio;
 
     public float velocidad;
     public float salto;
 
     public int vida;
+    public int vida2;
+
+
+    public float tiempoEntre;
+    private float tiempoSiguiente;
 
     public int danoGolpe;
     public Transform controladorGolpe;
@@ -28,7 +34,10 @@ public class PlayerC3 : MonoBehaviour
         enemy = GameObject.FindGameObjectWithTag("Enemigo").GetComponent<Enemigo1>();
         animator = GetComponent<Animator>();
         animatorHud = GameObject.FindGameObjectWithTag("CalenoHud").GetComponent<Animator>();
+        perdio = GameObject.FindGameObjectWithTag("Perde").GetComponent<Perder>();
 
+        vida2 = 1;
+        vida = 3;
 
     }
 
@@ -65,9 +74,16 @@ public class PlayerC3 : MonoBehaviour
 
     private void Ataque()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (tiempoSiguiente > 0)
         {
+            tiempoSiguiente -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && tiempoSiguiente <= 0)
+        {
+            tiempoSiguiente = tiempoEntre;
             Golpe();
+
         }
     }
 
@@ -86,48 +102,64 @@ public class PlayerC3 : MonoBehaviour
         }
     }
 
-    /*private void ControlHud()
+    public void Dano(int danoG)
     {
-        if (vida == 3 && enemy.vidaEnemigo == 2)
+        vida2 += danoG;
+
+        if (vida2 == 4)
+        {
+            vida -= 1;
+            vida2 = 1;
+
+            if (vida == 0)
+            {
+                perdio.Perdio();
+                enemy.puede = false;
+                Destroy(gameObject);
+                Destroy(GameObject.FindGameObjectWithTag("CalenoHud"));
+            }
+        }
+
+        if (vida == 3 && vida2 == 2)
         {
             animatorHud.SetTrigger("3V2H");
         }
 
-        if (vida == 3 && enemy.vidaEnemigo == 1)
+        if (vida == 3 && vida2 == 3)
         {
             animatorHud.SetTrigger("3V3H");
         }
 
-        if (vida == 2 && enemy.vidaEnemigo == 3)
+        if (vida == 2 && vida2 == 1)
         {
             animatorHud.SetTrigger("2V1H");
         }
 
-        if (vida == 2 && enemy.vidaEnemigo == 2)
+        if (vida == 2 && vida2 == 2)
         {
             animatorHud.SetTrigger("2V2H");
         }
 
-        if (vida == 2 && enemy.vidaEnemigo == 1)
+        if (vida == 2 && vida2 == 3)
         {
-            animatorHud.SetTrigger("2V1H");
+            animatorHud.SetTrigger("2V3H");
         }
 
-        if (vida == 1 && enemy.vidaEnemigo == 3)
+        if (vida == 1 && vida2 == 1)
         {
             animatorHud.SetTrigger("1V1H");
         }
 
-        if (vida == 1 && enemy.vidaEnemigo == 2)
+        if (vida == 1 && vida2 == 2)
         {
             animatorHud.SetTrigger("1V2H");
         }
 
-        if (vida == 1 && enemy.vidaEnemigo == 1)
+        if (vida == 1 && vida2 == 3)
         {
             animatorHud.SetTrigger("1V3H");
         }
-    }*/
+    }
 
     private void OnDrawGizmos()
     {

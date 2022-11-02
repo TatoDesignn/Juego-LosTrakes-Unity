@@ -16,12 +16,13 @@ public class Jefe_Caminar : StateMachineBehaviour
         enemy = animator.GetComponent<Enemigo1>();
         rb = enemy.rb2;
 
-        enemy.MirarJugador();
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        enemy.MirarJugador();
         rb.velocity = new Vector2(velocidad, rb.velocity.y) * animator.transform.right;
     }
 

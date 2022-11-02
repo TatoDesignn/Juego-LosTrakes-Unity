@@ -102,8 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 8
-  salto: 8
+  salto: 12
   vida: 3
+  vida2: 0
+  tiempoEntre: 0.5
   danoGolpe: 1
   controladorGolpe: {fileID: 5565450332547218075}
   radio: 1
