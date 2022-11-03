@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 7500854515070963248, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
       propertyPath: movimiento
       value: 
-      objectReference: {fileID: 8300000, guid: 33b32f93a28a71949bcc0de704645225, type: 3}
+      objectReference: {fileID: 8300000, guid: ee217d6eb004674449607e09498759aa, type: 3}
     - target: {fileID: 7500854515070963249, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
       propertyPath: m_Name
       value: Sonido
@@ -370,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7500854515070963251, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
       propertyPath: m_Volume
-      value: 0.33
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
@@ -1376,7 +1376,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.02
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -7,7 +7,6 @@ public class ControlSonido : MonoBehaviour
 
     AudioSource audio1;
 
-    [SerializeField] AudioClip movimiento;
     [SerializeField] AudioClip Salto;
     [SerializeField] AudioClip Golpe;
 
@@ -18,10 +17,6 @@ public class ControlSonido : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1)
-        {
-            audio1.PlayOneShot(movimiento);
-        }
 
         if (Input.GetKeyDown(KeyCode.W))
         {

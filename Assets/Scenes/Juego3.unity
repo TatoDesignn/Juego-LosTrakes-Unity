@@ -1382,7 +1382,7 @@ PrefabInstance:
     - target: {fileID: 7500854515070963248, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
       propertyPath: movimiento
       value: 
-      objectReference: {fileID: 8300000, guid: cc54a69392d0f9a4fb0aabee6a6c1294, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7500854515070963249, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
       propertyPath: m_Name
       value: Sonido
@@ -1430,6 +1430,10 @@ PrefabInstance:
     - target: {fileID: 7500854515070963250, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500854515070963251, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e13531550d1684aaa96856305c30ae, type: 3}
@@ -1667,7 +1671,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e65392ebb90d70344a2d92c068347a28, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.052
   m_Pitch: 1
   Loop: 0
@@ -1894,7 +1898,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.02
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
