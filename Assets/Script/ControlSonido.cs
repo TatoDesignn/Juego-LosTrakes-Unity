@@ -9,6 +9,7 @@ public class ControlSonido : MonoBehaviour
 
     [SerializeField] AudioClip movimiento;
     [SerializeField] AudioClip Salto;
+    [SerializeField] AudioClip Golpe;
 
     private void Start()
     {
@@ -25,6 +26,11 @@ public class ControlSonido : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             audio1.PlayOneShot(Salto);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            audio1.PlayOneShot(Golpe);
         }
     }
 }
