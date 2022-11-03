@@ -73,7 +73,13 @@ public class PlayerC : MonoBehaviour
             animator.SetBool("Down", true);
             animator.SetTrigger("Jump");
             puedeSaltar = false;
+            Invoke("Bajar", 0.5f);
         }
+    }
+
+    private void Bajar()
+    {
+        rb.gravityScale = 2;
     }
 
     private void Ataque()
@@ -186,6 +192,7 @@ public class PlayerC : MonoBehaviour
         {
             puedeSaltar = true;
             animator.SetBool("Down", false);
+            rb.gravityScale = 1;
         }
     }
 

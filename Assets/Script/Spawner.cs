@@ -11,36 +11,40 @@ public class Spawner : MonoBehaviour
     public Image hudR;
     public Image hudV;
 
-    void Start()
+    /*void Start()
     {
         hudA.gameObject.SetActive(false);
         hudR.gameObject.SetActive(false);
         hudV.gameObject.SetActive(false); 
 
-    }
+    }*/
 
-    private void Update()
+    private void Awake()
     {
+
+        hudA.gameObject.SetActive(false);
+        hudR.gameObject.SetActive(false);
+        hudV.gameObject.SetActive(false);
 
         if (Comunicador.playerPrefab.CompareTag("Rolo"))
         {
             hudA.gameObject.SetActive(true);
             Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         if (Comunicador.playerPrefab.CompareTag("Paisa"))
         {
             hudR.gameObject.SetActive(true);
             Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
-            Destroy(gameObject);
+           //Destroy(gameObject);
         }
 
         if (Comunicador.playerPrefab.CompareTag("Caleno"))
         {
             hudV.gameObject.SetActive(true);
             Instantiate(Comunicador.playerPrefab, this.transform.position, this.transform.rotation);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         
