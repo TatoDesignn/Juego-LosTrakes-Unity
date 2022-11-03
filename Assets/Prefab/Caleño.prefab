@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 8
-  salto: 12
+  salto: 11
   vida: 3
   vida2: 0
   tiempoEntre: 0.5
