@@ -9,8 +9,8 @@ y 3 diferentes personajes con los cuales podras jugar.</p>
   <li><strong>Golpe:</strong> E</li>
 </ul>
 <img style="width: 500px; height: auto;" src="https://cdn.discordapp.com/attachments/1001222483120230501/1206029165137240074/Portada.jpg?ex=65da852f&is=65c8102f&hm=31ec289aba3834a1568863891c76e90c49b001acc6345fdbce4327c5bc16c803&">
-<a href="https://tatodesign.itch.io/lostrakes">Link del Juego</a>
 <h2>Mas información ⭐</h2>
+<a href="https://tatodesign.itch.io/lostrakes">Link del Juego</a>
 <h2>Nota 🧾</h2>
 <p>Para vizualizar de forma correcta el juego, porfavor ponerlo en pantalla completa.</p>
 
